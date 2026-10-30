@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0d12">
   <meta name="description" content="Ibrahim Youssef — Frontend Developer with Full-Stack MERN experience. Selected production platforms, SaaS products, and engineering work.">
+  <meta name="author" content="Ibrahim Youssef">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ibrahim Youssef — Frontend Developer">
+  <meta property="og:description" content="Frontend-focused developer building production SaaS interfaces, dashboards, and web applications.">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Ibrahim Youssef — Frontend & Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
@@ -17,7 +23,7 @@
     <a class="brand" href="#home" aria-label="Ibrahim Youssef home"><span class="brand-mark">IY</span><span>IBRAHIM YOUSSEF</span></a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
     <nav class="nav">
-      <a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#about">About</a>
+      <a href="#experience">Experience</a><a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#about">About</a>
       <a class="nav-cta" href="https://www.linkedin.com/in/ibrahim-youssef-2a65b1261" target="_blank" rel="noreferrer">Let's connect <span>↗</span></a>
     </nav>
   </header>
@@ -26,7 +32,7 @@
     <section class="hero section-shell">
       <div class="hero-copy">
         <div class="eyebrow"><span class="status-dot"></span> OPEN TO THE RIGHT OPPORTUNITY <span class="eyebrow-line"></span> CAIRO, EGYPT</div>
-        <h1>Building web products<br>that make <em>complexity</em><br>feel simple.</h1>
+        <h1>Frontend depth.<br><em>Full-stack</em><br>ownership.</h1>
         <p class="hero-lede">I'm Ibrahim — a frontend-focused developer with hands-on full-stack experience. I build production interfaces, real-time experiences, and complete web applications with a strong focus on architecture, usability, and performance.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#work">Explore selected work <span>↓</span></a>
@@ -45,10 +51,26 @@
     </section>
 
     <section class="signal-strip section-shell">
-      <div><strong>2+</strong><span>YEARS PROFESSIONAL<br>FRONTEND EXPERIENCE</span></div>
-      <div><strong>600+</strong><span>ACTIVE USERS ON<br>PRODUCTION DASHBOARDS</span></div>
+      <div><strong data-count="2">0+</strong><span>YEARS BUILDING<br>PRODUCTION PRODUCTS</span></div>
+      <div><strong data-count="600">0+</strong><span>ACTIVE USERS ON<br>LIVE DASHBOARDS</span></div>
       <div><strong>30–40</strong><span>PAGES IN COMPLEX<br>BUSINESS DASHBOARDS</span></div>
-      <div><strong>5</strong><span>FRONTEND DEVELOPERS<br>SUPPORTED AT AITECH</span></div>
+      <div><strong data-count="5">0</strong><span>FRONTEND DEVELOPERS<br>SUPPORTED AT AITECH</span></div>
+    </section>
+
+    <section class="experience-section section-shell" id="experience">
+      <div class="section-heading experience-heading">
+        <div><div class="eyebrow">02 / EXPERIENCE</div><h2>Not just screens.<br><em>Systems that run.</em></h2></div>
+        <p>My strongest work lives where product complexity meets real users: permissions, live data, large tables, dynamic forms, and the backend decisions that make the interface dependable.</p>
+      </div>
+      <div class="experience-card reveal">
+        <div class="experience-top"><span class="experience-company">AiTech</span><span class="mono">AUG 2024 — PRESENT · 6TH OF OCTOBER CITY</span></div>
+        <div class="experience-role"><h3>Frontend & Full-Stack Developer</h3><span class="role-chip">CURRENT ROLE</span></div>
+        <div class="experience-grid">
+          <article><span>01</span><div><h4>Production dashboards</h4><p>Built 30–40 page SaaS dashboards for 600+ active users, including large-dataset tables, drag-and-drop workflows, real-time WebSocket updates, and 20+ field dynamic forms.</p></div></article>
+          <article><span>02</span><div><h4>Backend ownership</h4><p>Delivered the ATS V1 end-to-end: MongoDB schemas, Express APIs, business logic, CV analysis, interview scheduling, candidate ranking, notifications, JWT authentication, and RBAC.</p></div></article>
+          <article><span>03</span><div><h4>Technical leverage</h4><p>Designed authentication middleware and permission-conflict resolution across AI products, reviewed production code, and supported a five-person frontend team as a technical reference point.</p></div></article>
+        </div>
+      </div>
     </section>
 
     <section class="work-section section-shell" id="work">
@@ -57,10 +79,10 @@
         <p>A selection of independent projects and production work. Some company and client systems are presented as case studies without public demos or source-code links.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter projects">
-        <button class="filter active" data-filter="all">All work <span>09</span></button>
-        <button class="filter" data-filter="independent">Independent</button>
-        <button class="filter" data-filter="company">Company / Client</button>
-        <button class="filter" data-filter="private">Private case studies</button>
+        <button class="filter active" data-filter="all" aria-pressed="true">All work <span>09</span></button>
+        <button class="filter" data-filter="independent" aria-pressed="false">Independent</button>
+        <button class="filter" data-filter="company" aria-pressed="false">Company / Client</button>
+        <button class="filter" data-filter="private" aria-pressed="false">Private case studies</button>
       </div>
       <div class="project-grid">
         <article class="project-card project-featured" data-kind="independent">
@@ -135,7 +157,7 @@
     </section>
 
     <section class="about-section section-shell" id="about">
-      <div class="about-main"><div class="eyebrow">04 / ABOUT & TOOLKIT</div><h2>Frontend depth.<br><em>Full-stack perspective.</em></h2><p>I'm a frontend developer with 2+ years of professional experience building SaaS platforms and production web applications. At AiTech, I work across complex dashboards and AI-powered products, while also delivering backend functionality with Node.js, Express, and MongoDB on selected projects.</p><p>I care about clear architecture, reliable behavior, and making products easier to operate as they grow.</p></div>
+      <div class="about-main"><div class="eyebrow">05 / ABOUT & TOOLKIT</div><h2>Frontend depth.<br><em>Full-stack perspective.</em></h2><p>My day-to-day work is frontend-heavy, but my ownership does not stop at the browser. I have built complete backend flows in Node.js, Express, and MongoDB, and I understand how API design, data shape, permissions, and failure states affect the experience people actually use.</p><p>I care about clear architecture, reliable behavior, and making products easier to operate as they grow.</p></div>
       <div class="toolkit">
         <div class="tool-group"><span>FRONTEND</span><p>React · Next.js · Vue.js · Nuxt.js · TypeScript · JavaScript</p></div>
         <div class="tool-group"><span>STATE & UI</span><p>Redux Toolkit · Zustand · React Query · Pinia · Vuex · Tailwind · MUI · Sass · Bootstrap</p></div>

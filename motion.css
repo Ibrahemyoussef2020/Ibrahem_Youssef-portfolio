@@ -1,0 +1,23 @@
+/* Motion and depth layer: keeps the visual language quiet, responsive, and human. */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease var(--reveal-delay,0ms),transform .7s cubic-bezier(.2,.8,.2,1) var(--reveal-delay,0ms)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.experience-section{padding-bottom:145px}
+.experience-heading{margin-bottom:38px}
+.experience-card{position:relative;padding:34px;border:1px solid #ffffff20;border-radius:8px;background:linear-gradient(135deg,#171a26,#101218);overflow:hidden;box-shadow:0 30px 100px #0004}
+.experience-card:before{content:"";position:absolute;width:320px;height:320px;right:-90px;top:-150px;border:1px solid #a69aff36;border-radius:50%;box-shadow:0 0 0 35px #a69aff08,0 0 0 70px #a69aff05;pointer-events:none}
+.experience-top,.experience-role{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.experience-company{font-size:18px;font-weight:800;letter-spacing:-.04em;color:#c8c2ff}
+.experience-role{margin:18px 0 34px;justify-content:flex-start}
+.experience-role h3{font-size:29px;letter-spacing:-.06em;margin:0}
+.role-chip{font:8px "DM Mono";letter-spacing:.12em;color:#8be0bd;border:1px solid #70c9b855;padding:7px 9px;border-radius:3px}
+.experience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.experience-grid article{display:grid;grid-template-columns:28px 1fr;gap:12px;border-top:1px solid #ffffff1b;padding-top:18px}
+.experience-grid article>span{font:10px "DM Mono";color:#a69aff;padding-top:4px}
+.experience-grid h4{font-size:14px;margin:0 0 8px}
+.experience-grid p{color:#a3a2ae;font-size:12px;line-height:1.8;margin:0}
+.project-visual,.hero-visual{transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .25s ease,border-color .25s ease}
+.hero-visual{transform-style:preserve-3d}
+.hero-visual .core{transform:translate(-50%,-50%) translateZ(35px)}
+@media(max-width:850px){.experience-grid{grid-template-columns:1fr}.experience-card{padding:25px}.experience-role{align-items:flex-start;flex-direction:column;gap:12px}}
+@media(max-width:620px){.experience-section{padding-bottom:90px}.experience-top{align-items:flex-start;flex-direction:column;gap:10px}.experience-role h3{font-size:24px}.experience-card:before{right:-170px}.reveal{transform:translateY(18px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.project-visual,.hero-visual{transform:none!important;transition:none}}

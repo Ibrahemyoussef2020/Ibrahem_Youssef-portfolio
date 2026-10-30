@@ -1,9 +1,15 @@
-<<<<<<< HEAD
 # Ibrahim Youssef — Portfolio
 
-A responsive, static portfolio website built with semantic HTML, CSS, and vanilla JavaScript.
+A responsive portfolio for Ibrahim Youssef, a frontend-focused developer with hands-on full-stack experience.
+
+## Stack
+
+- Semantic HTML
+- CSS
+- Vanilla JavaScript
 
 ## Run locally
+
 Open `index.html` in a browser, or run a local static server:
 
 ```bash
@@ -11,23 +17,16 @@ npx serve .
 ```
 
 ## Deploy to Vercel
-1. Create a new GitHub repository for this portfolio.
-2. Upload the contents of this folder (the files inside `ibrahim-portfolio`, not the parent folder).
-3. Import the repository in Vercel.
-4. Keep Framework Preset as **Other**. No build command is needed; set the output directory to `.`.
-5. Deploy and use the resulting URL in job applications.
+
+1. Push the contents of this folder to a GitHub repository.
+2. Import the repository in Vercel.
+3. Use **Other** as the framework preset.
+4. Leave the build command empty and use `.` as the output directory.
 
 ## Before publishing
-- Confirm the LinkedIn URL and all public project URLs.
-- Add a professional email address if you want direct email contact.
-- Replace the CSS-built project previews with your own approved screenshots if available.
-- Review all project descriptions and contribution wording for accuracy.
-- Private projects are intentionally presented without demo or repository links.
-- AiTech, Drosat, and Kuttab are identified as company work; they are not presented as independent projects.
 
-## Notes
-The portfolio is written in English for international hiring teams. It intentionally links to live product pages rather than GitHub repositories.
-=======
-# Ibrahem_Youssef-portfolio
-this is My portfolio in HTML &amp; CSS to prevent some of my projects simply without complex teqs
->>>>>>> origin/main
+- Confirm the LinkedIn URL and all project URLs.
+- Add a professional email address and CV download link.
+- Replace CSS-built previews with approved screenshots where available.
+- Verify project descriptions, technologies, and contribution wording.
+- Keep private projects free of confidential URLs, credentials, and source code.
