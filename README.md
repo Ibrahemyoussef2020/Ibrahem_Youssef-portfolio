@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ibrahim Youssef — Portfolio
 
 A responsive, static portfolio website built with semantic HTML, CSS, and vanilla JavaScript.
@@ -26,3 +27,7 @@ npx serve .
 
 ## Notes
 The portfolio is written in English for international hiring teams. It intentionally links to live product pages rather than GitHub repositories.
+=======
+# Ibrahem_Youssef-portfolio
+this is My portfolio in HTML &amp; CSS to prevent some of my projects simply without complex teqs
+>>>>>>> origin/main
