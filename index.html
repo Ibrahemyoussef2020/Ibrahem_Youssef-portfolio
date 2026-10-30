@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="styles.css?v=20261031-3">
+  <link rel="stylesheet" href="motion.css?v=20261031-3">
 </head>
 <body>
   <canvas id="world-canvas" aria-hidden="true"></canvas>
@@ -24,7 +24,7 @@
     <a class="brand" href="#home" aria-label="Ibrahim Youssef home"><span class="brand-mark">IY</span><span>IBRAHIM YOUSSEF</span></a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
     <nav class="nav">
-      <a href="#experience">Experience</a><a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#about">About</a>
+      <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#work">Selected work</a><a href="#approach">Approach</a><a href="#about">About</a>
       <a class="nav-cta" href="https://www.linkedin.com/in/ibrahim-youssef-2a65b1261" target="_blank" rel="noreferrer">Let's connect <span>↗</span></a>
     </nav>
     <div class="world-context" aria-live="polite"><span class="context-pulse"></span><span id="space-context-name">SOLAR SYSTEM</span><b id="space-context-code">SPACE / 01</b></div>
@@ -80,9 +80,42 @@
       </div>
     </section>
 
+    <section class="skills-section section-shell" id="skills" data-space-chapter="nebula">
+      <div class="section-heading">
+        <div><div class="eyebrow">03 / SKILLS & STACK</div><h2>The tools behind<br><em>the interface.</em></h2></div>
+        <p>Two years of frontend product work, with a growing full-stack perspective built through real APIs, data models, authentication, and production ownership.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card skill-card-primary reveal">
+          <div class="skill-card-top"><span class="skill-index">01</span><span class="skill-signal">CORE STRENGTH</span></div>
+          <h3>Frontend systems</h3>
+          <p>Interfaces that stay clear and reliable when the product has real users, complex workflows, and a lot of data.</p>
+          <div class="skill-tags"><span>Vue.js</span><span>React</span><span>Next.js</span><span>Nuxt.js</span><span>TypeScript</span><span>JavaScript</span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-card-top"><span class="skill-index">02</span><span class="skill-signal">PRODUCT UI</span></div>
+          <h3>State, data & interaction</h3>
+          <p>Comfortable shaping the state layer behind dashboards, dynamic forms, live updates, and responsive user flows.</p>
+          <div class="skill-tags"><span>Pinia</span><span>Redux Toolkit</span><span>Zustand</span><span>React Query</span><span>WebSockets</span><span>WebRTC</span><span>Charts</span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-card-top"><span class="skill-index">03</span><span class="skill-signal">FULL-STACK LAYER</span></div>
+          <h3>APIs & data ownership</h3>
+          <p>Three months of focused full-stack delivery, including the ATS V1 from schema and API design through authentication and business logic.</p>
+          <div class="skill-tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span><span>REST APIs</span><span>JWT</span><span>RBAC</span></div>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-card-top"><span class="skill-index">04</span><span class="skill-signal">DELIVERY MINDSET</span></div>
+          <h3>Quality & collaboration</h3>
+          <p>Focused on maintainable delivery: useful code review, practical architecture, performance, and testing around important behavior.</p>
+          <div class="skill-tags"><span>Jest</span><span>Vitest</span><span>Git</span><span>CI/CD</span><span>Performance</span><span>SOLID</span><span>Code review</span></div>
+        </article>
+      </div>
+    </section>
+
     <section class="work-section section-shell" id="work" data-space-chapter="spacecraft">
       <div class="section-heading">
-        <div><div class="eyebrow">02 / SELECTED WORK</div><h2>Products, platforms<br>& engineering work.</h2></div>
+        <div><div class="eyebrow">04 / SELECTED WORK</div><h2>Products, platforms<br>& engineering work.</h2></div>
         <p>A selection of independent projects and production work. Some company and client systems are presented as case studies without public demos or source-code links.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter projects">
@@ -154,7 +187,7 @@
 
     <section class="approach-section" id="approach" data-space-chapter="nebula">
       <div class="section-shell approach-inner">
-        <div><div class="eyebrow">03 / HOW I WORK</div><h2>Good engineering is<br><em>felt</em> by the people<br>using the product.</h2></div>
+        <div><div class="eyebrow">05 / HOW I WORK</div><h2>Good engineering is<br><em>felt</em> by the people<br>using the product.</h2></div>
         <div class="principles">
           <article><span>01</span><div><h3>Make complexity manageable</h3><p>Turn complicated workflows, permissions, and data-heavy screens into interfaces people can understand and use confidently.</p></div></article>
           <article><span>02</span><div><h3>Think beyond the component</h3><p>Consider state, API boundaries, failure states, performance, and maintainability — not just the happy-path UI.</p></div></article>
@@ -164,7 +197,7 @@
     </section>
 
     <section class="about-section section-shell" id="about" data-space-chapter="nebula">
-      <div class="about-main"><div class="eyebrow">05 / ABOUT & TOOLKIT</div><h2>Frontend depth.<br><em>Full-stack perspective.</em></h2><p>My day-to-day work is frontend-heavy, but my ownership does not stop at the browser. I have built complete backend flows in Node.js, Express, and MongoDB, and I understand how API design, data shape, permissions, and failure states affect the experience people actually use.</p><p>I care about clear architecture, reliable behavior, and making products easier to operate as they grow.</p></div>
+      <div class="about-main"><div class="eyebrow">06 / ABOUT & TOOLKIT</div><h2>Frontend depth.<br><em>Full-stack perspective.</em></h2><p>My day-to-day work is frontend-heavy, but my ownership does not stop at the browser. I have built complete backend flows in Node.js, Express, and MongoDB, and I understand how API design, data shape, permissions, and failure states affect the experience people actually use.</p><p>I care about clear architecture, reliable behavior, and making products easier to operate as they grow.</p></div>
       <div class="toolkit">
         <div class="tool-group"><span>FRONTEND</span><p>React · Next.js · Vue.js · Nuxt.js · TypeScript · JavaScript</p></div>
         <div class="tool-group"><span>STATE & UI</span><p>Redux Toolkit · Zustand · React Query · Pinia · Vuex · Tailwind · MUI · Sass · Bootstrap</p></div>
@@ -181,7 +214,7 @@
   <footer class="footer section-shell"><a class="brand" href="#home"><span class="brand-mark">IY</span><span>IBRAHIM YOUSSEF</span></a><span>DESIGNED TO MAKE THE WORK SPEAK.</span><a href="https://github.com/Ibrahemyoussef2020" target="_blank" rel="noreferrer">GitHub profile ↗</a><span>© <span id="year"></span> Ibrahim Youssef</span></footer>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script type="module" src="world3d.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="world3d.js?v=20261031-3"></script>
+  <script src="script.js?v=20261031-3"></script>
 </body>
 </html>
