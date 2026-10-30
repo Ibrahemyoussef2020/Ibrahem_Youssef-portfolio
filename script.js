@@ -1,5 +1,27 @@
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
+const worldContext = {
+  space: ['ORBITAL SYSTEM', 'SPACE / 01']
+};
+window.applyAppWorld = next => {
+  const selected = worldContext[next] ? next : 'space';
+  document.body.dataset.world = selected;
+  const name = document.getElementById('world-context-name');
+  const code = document.getElementById('world-context-code');
+  if (name) name.textContent = worldContext[selected][0];
+  if (code) code.textContent = worldContext[selected][1];
+  document.querySelectorAll('main section').forEach(section => {
+    section.classList.remove('world-transition');
+    requestAnimationFrame(() => section.classList.add('world-transition'));
+  });
+};
+window.applyAppWorld('space');
+const heroLede = document.querySelector('.hero-lede');
+if (heroLede) heroLede.textContent = "I'm Ibrahim, a frontend and full-stack developer at AiTech. I build production dashboards, real-time interfaces, and complete MERN applications - from interaction design and state architecture to APIs, data models, and deployment.";
+const heroFootnote = document.querySelector('.hero-footnote span:last-child');
+if (heroFootnote) heroFootnote.textContent = 'FRONTEND ENGINEERING · FULL-STACK DELIVERY · REAL-TIME SYSTEMS';
+const dashboardCounter = document.querySelector('.signal-strip strong:not([data-count])');
+if (dashboardCounter) { dashboardCounter.dataset.count = '30'; dashboardCounter.textContent = '0–40'; }
 menuButton?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
@@ -70,4 +92,18 @@ document.querySelectorAll('.project-visual, .hero-visual').forEach(card => {
     card.style.setProperty('--tilt-x', '0deg');
     card.style.setProperty('--tilt-y', '0deg');
   });
+});
+
+const scene = document.querySelector('.scene-3d');
+scene?.addEventListener('pointermove', event => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const bounds = scene.getBoundingClientRect();
+  const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+  const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+  scene.style.setProperty('--scene-x', `${x * 16}deg`);
+  scene.style.setProperty('--scene-y', `${y * -12}deg`);
+});
+scene?.addEventListener('pointerleave', () => {
+  scene.style.setProperty('--scene-x', '0deg');
+  scene.style.setProperty('--scene-y', '0deg');
 });
