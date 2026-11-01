@@ -29,6 +29,7 @@
     war: { sky: 0x241f2a, ground: 0x433a35, accent: 0xc87556, fog: 0x241f2a }
   };
   let mode = 'space';
+  let chapterTransitionTimer = null;
   let time = 0;
   let waveMesh = null;
   let starField = null;
@@ -133,10 +134,17 @@
 
   function setChapter(next) {
     if (!next || next === mode) return;
-    mode = next; waveMesh = null; starField = null; solarBodies.length = 0; galaxySystems.length = 0; clear(world);
-    if (next === 'solar') buildSpace(); if (next === 'galaxies') buildGalaxyChapter(); if (next === 'spacecraft') buildSpacecraftChapter(); if (next === 'nebula') buildNebulaChapter();
-    const labels = { solar: ['SOLAR SYSTEM', 'SPACE / 01'], galaxies: ['INTERTWINED GALAXIES', 'SPACE / 02'], spacecraft: ['SPACECRAFT & SATELLITES', 'SPACE / 03'], nebula: ['DEEP NEBULA', 'SPACE / 04'] }[next]; const label = document.getElementById('space-context-name'); const code = document.getElementById('space-context-code'); if (label) label.textContent = labels[0]; if (code) code.textContent = labels[1];
-    if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) window.gsap.fromTo(world.scale, { x: .78, y: .78, z: .78 }, { x: 1, y: 1, z: 1, duration: 1.1, ease: 'power3.out' });
+    mode = next;
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    canvas.classList.add('is-changing');
+    clearTimeout(chapterTransitionTimer);
+    chapterTransitionTimer = setTimeout(() => {
+      waveMesh = null; starField = null; solarBodies.length = 0; galaxySystems.length = 0; clear(world);
+      if (next === 'solar') buildSpace(); if (next === 'galaxies') buildGalaxyChapter(); if (next === 'spacecraft') buildSpacecraftChapter(); if (next === 'nebula') buildNebulaChapter();
+      const labels = { solar: ['SOLAR SYSTEM', 'SPACE / 01'], galaxies: ['INTERTWINED GALAXIES', 'SPACE / 02'], spacecraft: ['SPACECRAFT & SATELLITES', 'SPACE / 03'], nebula: ['DEEP NEBULA', 'SPACE / 04'] }[next]; const label = document.getElementById('space-context-name'); const code = document.getElementById('space-context-code'); if (label) label.textContent = labels[0]; if (code) code.textContent = labels[1];
+      if (window.gsap && !reducedMotion) window.gsap.fromTo(world.scale, { x: .78, y: .78, z: .78 }, { x: 1, y: 1, z: 1, duration: 1.1, ease: 'power3.out' });
+      canvas.classList.remove('is-changing');
+    }, reducedMotion ? 0 : 260);
   }
 
   function addSmoke(x, y, z) { const smoke = new THREE.Group(); for (let i = 0; i < 5; i++) { const puff = new THREE.Mesh(new THREE.SphereGeometry(.45 + i * .12, 10, 8), mat(0x6d625d, 1)); puff.position.set((Math.random() - .5) * .5, i * .55, (Math.random() - .5) * .5); smoke.add(puff); } smoke.position.set(x, y, z); world.add(smoke); }
@@ -178,8 +186,25 @@
   }
 
   setMode('space');
-  const chapterObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) setChapter(entry.target.dataset.spaceChapter); }); }, { threshold: .45 });
-  document.querySelectorAll('[data-space-chapter]').forEach(section => chapterObserver.observe(section));
+
+  // Change the space view by viewport screen, rather than by content section.
+  // This keeps the background moving naturally as each screenful enters view.
+  const chapterSequence = ['solar', 'galaxies', 'nebula', 'spacecraft'];
+  let screenChapter = 0;
+  let screenChangeQueued = false;
+  const updateScreenChapter = () => {
+    screenChangeQueued = false;
+    const nextChapter = Math.floor((scrollY + innerHeight * .5) / innerHeight) % chapterSequence.length;
+    if (nextChapter === screenChapter) return;
+    screenChapter = nextChapter;
+    setChapter(chapterSequence[screenChapter]);
+  };
+  addEventListener('scroll', () => {
+    if (screenChangeQueued) return;
+    screenChangeQueued = true;
+    requestAnimationFrame(updateScreenChapter);
+  }, { passive: true });
+  addEventListener('resize', updateScreenChapter);
 
   let pointerX = 0; let pointerY = 0;
   let yaw = 0; let pitch = -0.18; let distance = 13; let dragging = false; let lastX = 0; let lastY = 0;
