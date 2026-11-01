@@ -208,9 +208,18 @@
 
   let pointerX = 0; let pointerY = 0;
   let yaw = 0; let pitch = -0.18; let distance = 13; let dragging = false; let lastX = 0; let lastY = 0;
-  canvas.addEventListener('pointerdown', event => { dragging = true; lastX = event.clientX; lastY = event.clientY; canvas.setPointerCapture(event.pointerId); });
-  canvas.addEventListener('pointerup', event => { dragging = false; canvas.releasePointerCapture(event.pointerId); });
-  canvas.addEventListener('pointermove', event => { if (!dragging) return; yaw += (event.clientX - lastX) * .006; pitch = Math.max(-.7, Math.min(.35, pitch + (event.clientY - lastY) * .004)); lastX = event.clientX; lastY = event.clientY; });
+  addEventListener('pointerdown', event => {
+    if (event.target.closest?.('a,button,input,textarea,select')) return;
+    dragging = true; lastX = event.clientX; lastY = event.clientY;
+  });
+  addEventListener('pointerup', () => { dragging = false; });
+  addEventListener('pointercancel', () => { dragging = false; });
+  addEventListener('pointermove', event => {
+    if (!dragging) return;
+    yaw += (event.clientX - lastX) * .006;
+    pitch = Math.max(-.7, Math.min(.35, pitch + (event.clientY - lastY) * .004));
+    lastX = event.clientX; lastY = event.clientY;
+  });
   canvas.addEventListener('wheel', event => { event.preventDefault(); distance = Math.max(9, Math.min(24, distance + event.deltaY * .012)); }, { passive: false });
   let touchDistance = 0;
   canvas.addEventListener('touchstart', event => { if (event.touches.length === 2) touchDistance = Math.hypot(event.touches[0].clientX - event.touches[1].clientX, event.touches[0].clientY - event.touches[1].clientY); }, { passive: true });

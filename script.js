@@ -41,6 +41,15 @@ nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
   menuButton.setAttribute('aria-expanded', 'false');
 }));
 
+document.getElementById('contact-form')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const form = new FormData(event.currentTarget);
+  const subject = encodeURIComponent(`Portfolio enquiry from ${form.get('name')}`);
+  const body = encodeURIComponent(`Name: ${form.get('name')}\nEmail: ${form.get('email')}\n\n${form.get('message')}`);
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ibrahimyoussef.dev@gmail.com&su=${subject}&body=${body}`;
+  window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
+});
+
 const filters = document.querySelectorAll('.filter');
 const cards = document.querySelectorAll('.project-card');
 const verifiedProjectCopy = [
