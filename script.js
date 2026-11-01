@@ -2,6 +2,7 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const topbar = document.querySelector('.topbar');
 const pageMain = document.querySelector('main');
+const backToTop = document.getElementById('back-to-top');
 if (topbar && pageMain) {
   const topbarHeight = topbar.offsetHeight;
   topbar.style.position = 'fixed';
@@ -13,6 +14,10 @@ if (topbar && pageMain) {
   topbar.style.backdropFilter = 'blur(14px)';
   pageMain.style.paddingTop = `${topbarHeight}px`;
 }
+const updateBackToTop = () => backToTop?.classList.toggle('is-visible', window.scrollY > window.innerHeight * 2);
+addEventListener('scroll', updateBackToTop, { passive: true });
+backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+updateBackToTop();
 const worldContext = {
   space: ['ORBITAL SYSTEM', 'SPACE / 01']
 };
