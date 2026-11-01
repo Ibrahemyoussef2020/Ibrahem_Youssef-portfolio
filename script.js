@@ -23,12 +23,13 @@ const heroLede = document.querySelector('.hero-lede');
 if (heroLede) heroLede.textContent = "I'm Ibrahim, a frontend and full-stack developer at AiTech. I build production dashboards, real-time interfaces, and complete MERN applications - from interaction design and state architecture to APIs, data models, and deployment.";
 const heroFootnote = document.querySelector('.hero-footnote span:last-child');
 if (heroFootnote) heroFootnote.textContent = 'FRONTEND ENGINEERING · FULL-STACK DELIVERY · REAL-TIME SYSTEMS';
-const heroVisual = document.querySelector('.hero-visual');
+  const heroVisual = document.querySelector('.hero-visual');
 if (heroVisual) {
   heroVisual.className = 'hero-visual orbital-profile';
   heroVisual.setAttribute('aria-label', 'Interactive orbital profile showing frontend and full-stack experience');
   heroVisual.innerHTML = `<div class="profile-head"><span>ORBITAL PROFILE</span><b>SPACE / 01</b></div><div class="profile-stage"><div class="profile-grid"></div><div class="profile-orbit profile-orbit-one"></div><div class="profile-orbit profile-orbit-two"></div><div class="profile-orbit profile-orbit-three"></div><div class="profile-core"><strong>IY</strong><small>BUILD / SHIP / SCALE</small></div><div class="profile-signal profile-signal-left"><span>01 / CORE FOCUS</span><strong>FRONTEND</strong><small>UI SYSTEMS · STATE · UX</small></div><div class="profile-signal profile-signal-right"><span>02 / EXTENDED LAYER</span><strong>FULL-STACK</strong><small>APIs · DATA · AUTH</small></div><div class="profile-node profile-node-one"></div><div class="profile-node profile-node-two"></div></div><div class="profile-footer"><span><i></i> AVAILABLE FOR THE RIGHT BUILD</span><b>2Y FRONTEND&nbsp; / &nbsp;3M FULL-STACK</b></div>`;
 }
+document.querySelector('.profile-core small')?.remove();
 const dashboardCounter = document.querySelector('.signal-strip strong:not([data-count])');
 if (dashboardCounter) { dashboardCounter.dataset.count = '30'; dashboardCounter.textContent = '0–40'; }
 menuButton?.addEventListener('click', () => {
