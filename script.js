@@ -3,6 +3,8 @@ const nav = document.querySelector('.nav');
 const topbar = document.querySelector('.topbar');
 const pageMain = document.querySelector('main');
 const backToTop = document.getElementById('back-to-top');
+const scrollAstronaut = document.getElementById('scroll-astronaut');
+const scrollLanding = document.getElementById('scroll-landing');
 if (topbar && pageMain) {
   const topbarHeight = topbar.offsetHeight;
   topbar.style.position = 'fixed';
@@ -18,6 +20,16 @@ const updateBackToTop = () => backToTop?.classList.toggle('is-visible', window.s
 addEventListener('scroll', updateBackToTop, { passive: true });
 backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 updateBackToTop();
+const updateScrollAstronaut = () => {
+  if (!scrollAstronaut) return;
+  const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+  scrollAstronaut.style.setProperty('--rope-length', `${70 + progress * Math.max(180, window.innerHeight - 292)}px`);
+  scrollLanding?.classList.toggle('is-landed', progress > .97);
+};
+addEventListener('scroll', updateScrollAstronaut, { passive: true });
+addEventListener('resize', updateScrollAstronaut);
+updateScrollAstronaut();
 const worldContext = {
   space: ['ORBITAL SYSTEM', 'SPACE / 01']
 };
