@@ -1,5 +1,18 @@
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
+const topbar = document.querySelector('.topbar');
+const pageMain = document.querySelector('main');
+if (topbar && pageMain) {
+  const topbarHeight = topbar.offsetHeight;
+  topbar.style.position = 'fixed';
+  topbar.style.top = '0';
+  topbar.style.left = '50%';
+  topbar.style.transform = 'translateX(-50%)';
+  topbar.style.zIndex = '50';
+  topbar.style.background = 'rgba(5, 8, 20, .72)';
+  topbar.style.backdropFilter = 'blur(14px)';
+  pageMain.style.paddingTop = `${topbarHeight}px`;
+}
 const worldContext = {
   space: ['ORBITAL SYSTEM', 'SPACE / 01']
 };

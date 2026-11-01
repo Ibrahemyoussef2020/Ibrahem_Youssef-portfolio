@@ -34,6 +34,7 @@
 #world-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:auto;background:#08131d}
 #world-canvas{transition:opacity .28s ease,filter .28s ease}#world-canvas.is-changing{opacity:.18;filter:blur(4px)}
 header,main,footer{position:relative;z-index:1}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(5,8,20,.72);backdrop-filter:blur(14px);}
 .webgl-fallback #world-canvas{display:none}.webgl-fallback body:after{background:linear-gradient(135deg,#0b0d12,#1b2030)}
 body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#07101955 0%,transparent 35%,#080b126e 100%)}
 body:before{content:"";position:fixed;inset:0;z-index:.5;pointer-events:none;background:linear-gradient(180deg,rgba(1,4,14,.38) 0%,rgba(2,4,14,.3) 48%,rgba(5,8,22,.46) 100%)}
