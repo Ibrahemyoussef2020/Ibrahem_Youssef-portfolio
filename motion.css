@@ -131,6 +131,10 @@ body[data-world] .project-info p{color:#fff!important;text-shadow:0 2px 5px #000
 .brand-ship svg{transform-origin:50% 50%;animation:satellite-float 3.2s ease-in-out infinite}@keyframes satellite-float{0%,100%{transform:translateY(0) rotate(-.35deg)}50%{transform:translateY(-1px) rotate(.35deg)}}
 @media(max-width:620px){.brand-ship{width:170px;height:44px}}
 @media(prefers-reduced-motion:reduce){.brand-ship svg{animation:none}}
+@media(max-width:620px){
+  .section-heading h2,.approach-inner h2,.about-main h2,.contact-section h2{font-size:clamp(30px,8.5vw,38px)!important;line-height:1.08}
+  .work-foot h3{font-size:24px!important;line-height:1.15}
+}
 @media(prefers-reduced-motion:reduce){.brand-ship .sat-rotor{animation:none}}
 .astronaut-profile{overflow:hidden;background:#080d1c;border-color:#9b91ff55;box-shadow:0 28px 90px #0009}.astronaut-profile img{display:block;width:100%;height:100%;object-fit:cover;object-position:72% center;filter:saturate(.92) contrast(1.04)}.astronaut-caption{position:absolute;left:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:7px;padding:13px 15px;border-left:2px solid #a69aff;background:rgba(5,8,20,.72);backdrop-filter:blur(9px);box-shadow:0 14px 30px rgba(0,0,0,.34);color:#fff}.astronaut-caption span,.astronaut-caption small{font:8px "DM Mono";letter-spacing:.1em;color:#bcb7ff}.astronaut-caption strong{font-size:18px;line-height:1.05;letter-spacing:-.04em}.astronaut-caption small{color:#70d9d1}
 @media(max-width:620px){.astronaut-profile img{object-position:70% center}.astronaut-caption{left:14px;padding:10px 11px}.astronaut-caption strong{font-size:14px}.astronaut-caption span,.astronaut-caption small{font-size:7px}}
