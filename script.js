@@ -50,9 +50,7 @@ if (window.scrollX !== 0) window.scrollTo({ left: 0, top: window.scrollY, behavi
 document.documentElement.scrollLeft = 0;
 document.body.scrollLeft = 0;
 const heroLede = document.querySelector('.hero-lede');
-if (heroLede) heroLede.textContent = "I'm Ibrahim, a frontend and full-stack developer at AiTech. I build production dashboards, real-time interfaces, and complete MERN applications - from interaction design and state architecture to APIs, data models, and deployment.";
 const heroFootnote = document.querySelector('.hero-footnote span:last-child');
-if (heroFootnote) heroFootnote.textContent = 'FRONTEND ENGINEERING · FULL-STACK DELIVERY · REAL-TIME SYSTEMS';
   const heroVisual = document.querySelector('.hero-visual');
 if (heroVisual) {
   heroVisual.className = 'hero-visual orbital-profile';
@@ -60,6 +58,11 @@ if (heroVisual) {
   heroVisual.innerHTML = `<div class="profile-head"><span>ORBITAL PROFILE</span><b>SPACE / 01</b></div><div class="profile-stage"><div class="profile-grid"></div><div class="profile-orbit profile-orbit-one"></div><div class="profile-orbit profile-orbit-two"></div><div class="profile-orbit profile-orbit-three"></div><div class="profile-core"><strong>IY</strong><small>BUILD / SHIP / SCALE</small></div><div class="profile-signal profile-signal-left"><span>01 / CORE FOCUS</span><strong>FRONTEND</strong><small>UI SYSTEMS · STATE · UX</small></div><div class="profile-signal profile-signal-right"><span>02 / EXTENDED LAYER</span><strong>FULL-STACK</strong><small>APIs · DATA · AUTH</small></div><div class="profile-node profile-node-one"></div><div class="profile-node profile-node-two"></div></div><div class="profile-footer"><span><i></i> AVAILABLE FOR THE RIGHT BUILD</span><b>2Y FRONTEND&nbsp; / &nbsp;3M FULL-STACK</b></div>`;
 }
 document.querySelector('.profile-core small')?.remove();
+if (heroVisual) {
+  heroVisual.className = 'hero-visual astronaut-profile';
+  heroVisual.setAttribute('aria-label', 'Astronaut portrait of Ibrahim Youssef');
+  heroVisual.innerHTML = '<img src="ibrahim-astronaut.png" alt="Ibrahim Youssef portrayed as an astronaut" loading="eager"><div class="astronaut-caption"><span>IBRAHIM YOUSSEF</span><strong>FRONTEND<br>FULL-STACK</strong><small>BUILD · SHIP · SCALE</small></div>';
+}
 const dashboardCounter = document.querySelector('.signal-strip strong:not([data-count])');
 if (dashboardCounter) { dashboardCounter.dataset.count = '30'; dashboardCounter.textContent = '0–40'; }
 menuButton?.addEventListener('click', () => {
@@ -77,6 +80,8 @@ document.getElementById('contact-form')?.addEventListener('submit', event => {
   const subject = encodeURIComponent(`Portfolio enquiry from ${form.get('name')}`);
   const body = encodeURIComponent(`Name: ${form.get('name')}\nEmail: ${form.get('email')}\n\n${form.get('message')}`);
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ibrahimyoussef.dev@gmail.com&su=${subject}&body=${body}`;
+  const status = document.getElementById('contact-status');
+  if (status) status.textContent = 'Your email draft is ready. Review it, then press Send in Gmail.';
   window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
 });
 
@@ -174,6 +179,22 @@ document.querySelectorAll('.project-card').forEach(card => {
   linkRow.className = 'project-links';
   linkRow.innerHTML = links.map(([label, url]) => `<a href="${url}" target="_blank" rel="noreferrer">${label} ↗</a>`).join('');
   info.append(linkRow);
+});
+document.querySelectorAll('.project-card').forEach(card => {
+  const visual = card.querySelector('.project-visual[href]');
+  const title = card.querySelector('.project-info h3');
+  if (!visual || !title || title.querySelector('.project-title-link')) return;
+  const currentLink = title.querySelector('a');
+  const projectName = (title.childNodes[0]?.textContent || title.textContent).trim();
+  if (!projectName) return;
+  const titleLink = document.createElement('a');
+  titleLink.className = 'project-title-link';
+  titleLink.href = visual.href;
+  titleLink.target = '_blank';
+  titleLink.rel = 'noreferrer';
+  titleLink.textContent = projectName;
+  title.replaceChildren(titleLink);
+  if (currentLink) title.append(' ', currentLink);
 });
 const allFilterCount = document.querySelector('.filter[data-filter="all"] span');
 if (allFilterCount) allFilterCount.textContent = '08';
